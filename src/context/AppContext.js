@@ -2,6 +2,11 @@ import { createContext, useReducer } from 'react';
 
 const AppReducer = (state, action) => {
   switch (action.type) {
+    case 'ADD_EXPENSE':
+      return {
+        ...state,
+        expenses: [...state.expenses, action.payload],
+      };
     default:
       return state;
   }
@@ -13,8 +18,6 @@ const initialState = {
     { id: 1, name: 'Shopping', cost: 40 },
     { id: 2, name: 'Holday', cost: 10 },
     { id: 3, name: 'Billing', cost: 20 },
-    { id: 4, name: 'Rent', cost: 402 },
-    { id: 5, name: 'Travel', cost: 407 },
   ],
 };
 
